@@ -1299,22 +1299,29 @@
         ========================= */
 
         .cta-section.active .cta-box h2 {
-            color: #fff;
+            color: #000;
         }
 
         .cta-section.active .cta-btn {
-            color: #fff;
-            border-color: #fff;
+            color: #000;
+            border-color: #000;
         }
 
         .cta-section.active .cta-btn:hover {
             background: #fff;
             color: #db9221;
         }
+        .page-reveal{
+    position: fixed;
+    inset: 0;
+    background: #db9221;
+    z-index: 999999;
+}
     </style>
 </head>
 
 <body>
+    <div class="page-reveal"></div>
     <div class="navbar-wrapper">
 
         <nav class="navbar">
@@ -1810,6 +1817,20 @@ if (section) {
   });
 
 }
+</script>
+<script>
+window.addEventListener("load", () => {
+
+    gsap.to(".page-reveal", {
+        yPercent: -100,
+        duration: 1.5,
+        ease: "power4.inOut",
+        onComplete: () => {
+            document.querySelector(".page-reveal").remove();
+        }
+    });
+
+});
 </script>
 </body>
 
