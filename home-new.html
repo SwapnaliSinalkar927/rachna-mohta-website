@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link rel="icon" type="image/png" href="assets/images/logo-navbar.png" />
+    <link rel="icon" type="image/png" href="assets/images/logo-navbar1.png" />
     <link rel="stylesheet" href="assets/css/style1.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
@@ -784,7 +784,7 @@
             }
 
             .insight-center h2 {
-                font-size: 25px;
+                font-size: 20px;
                 line-height: 1.3;
             }
 
@@ -1798,15 +1798,15 @@
 
         .note-card {
             flex: 1;
-            min-width: 280px;
-            max-width: 360px;
+            /* min-width: 280px; */
+            max-width: 400px;
         }
 
         .note-card img {
             width: 100%;
             display: block;
 
-            filter: drop-shadow(0 18px 15px rgba(0, 0, 0, 0.25));
+            /* filter: drop-shadow(0 18px 15px rgba(0, 0, 0, 0.25)); */
             transition: transform 0.3s ease;
         }
 
@@ -2268,15 +2268,15 @@
         <div class="notes-container">
 
             <div class="note-card note-animate">
-                <img src="assets/images/note1.png" alt="Leadership Support">
+                <img src="assets/images/Group 88.png" alt="Leadership Support">
             </div>
 
             <div class="note-card note-animate">
-                <img src="assets/images/note3.png" alt="Professional Clarity">
+                <img src="assets/images/Group 89.png" alt="Professional Clarity">
             </div>
 
             <div class="note-card note-animate">
-                <img src="assets/images/note2.png" alt="Personal Direction">
+                <img src="assets/images/Group 90.png" alt="Personal Direction">
             </div>
 
         </div>
@@ -3269,26 +3269,26 @@ window.addEventListener("load", () => {
         }
     });
 
-    /* Text reveal left -> right */
+    /* Slow text reveal */
     tl.to(".loader-content h1", {
         clipPath: "inset(0 0% 0 0)",
-        duration: 2.5,
+        duration: 2,
         ease: "power2.out"
     })
 
-    /* Hold */
+    /* Very short hold */
     .to({}, {
-        duration: 1
+        duration: 0.2
     })
 
-    /* Text hide left -> right */
+    /* Text hide */
     .to(".loader-content h1", {
         clipPath: "inset(0 0 0 100%)",
-        duration: 0.8,
+        duration: 0.6,
         ease: "power2.inOut"
     })
 
-    /* Orange screen slides up */
+    /* Immediately slide orange screen */
     .to(".page-loader", {
         yPercent: -100,
         duration: 1.2,
