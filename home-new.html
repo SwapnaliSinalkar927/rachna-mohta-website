@@ -1971,12 +1971,11 @@
         z-index: 1;
     }
     /* Hide page scroll initially */
-body.loading {
+/* body.loading {
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
-/* MAIN LOADER */
 .page-loader{
     position:fixed;
     inset:0;
@@ -1985,7 +1984,6 @@ body.loading {
     overflow:hidden;
 }
 
-/* Orange layer */
 .loader-fill{
     position:absolute;
     left:0;
@@ -1995,7 +1993,6 @@ body.loading {
     background:#db9221;
 }
 
-/* Center content */
 .loader-content{
     position:absolute;
     top:50%;
@@ -2013,13 +2010,6 @@ body.loading {
     font-family:'bonaNovaScBold';
 }
 
-/* .loader-content p{
-    color:#F6EEE3;
-    font-size:18px;
-    line-height:1.5;
-    font-family:'poppinMedium';
-} */
-
 @media(max-width:768px){
 
     .loader-content{
@@ -2029,30 +2019,86 @@ body.loading {
     .loader-content h1{
         font-size:28px;
     }
+} */
+ /* .page-loader{
+    position: fixed;
+    inset: 0;
+    background: #db9221;
+    z-index: 999999;
+    overflow: hidden;
+}
 
-    /* .loader-content p{
-        font-size:16px;
-    } */
+.loader-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+} */
+
+/* .loader-content h1{
+    color: #F6EEE3;
+    font-size: 40px;
+    font-family: 'bonaNovaScBold';
+} */
+
+.page-loader{
+    position: fixed;
+    inset: 0;
+    background: #db9221;
+    z-index: 999999;
+    overflow: hidden;
+}
+
+.loader-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.loader-content h1{
+    color: #F6EEE3;
+    font-size: 40px;
+    margin: 0;
+    font-family: 'bonaNovaScBold';
+
+    /* IMPORTANT */
+    clip-path: inset(0 100% 0 0);
+}
+@media(max-width:768px){
+    .loader-content{
+        width:90%;
+    }
+
+    .loader-content h1{
+        font-size:28px;
+    }
 }
     </style>
 </head>
 
 <body class="loading">
 
+    <!-- <div class="page-loader">
+
+        <div class="loader-fill"></div>
+
+        <div class="loader-content">
+            <h1>Evolving & learning  is something you should always value.</h1>
+        </div>
+
+    </div> -->
+
     <div class="page-loader">
-
-    <div class="loader-fill"></div>
-
-    <div class="loader-content">
-        <h1>Evolving & learning  is something you should always value.</h1>
-
-        <!-- <p>
-            She gives you the question you didn't know you needed to ask &
-            that changes everything.
-        </p> -->
+        <div class="loader-content">
+            <div class="text-reveal">
+                <h1>Evolving & learning is something you should always value.</h1>
+            </div>
+        </div>
     </div>
-
-</div>
 
     <div class="navbar-wrapper">
 
@@ -3121,52 +3167,128 @@ gsap.to(".hero-btn1", {
 });
 </script>
 <script>
+// window.addEventListener("load", () => {
+
+//     document.body.classList.add("loading");
+
+//     const tl = gsap.timeline({
+//         onComplete: () => {
+//             document.querySelector(".page-loader").remove();
+//             document.body.classList.remove("loading");
+//         }
+//     });
+
+//     tl.to(".loader-fill", {
+//         height: "100%",
+//         duration: 1.4,
+//         ease: "power3.inOut"
+//     })
+
+//     .fromTo(".loader-content",
+//         {
+//             opacity: 0,
+//             y: 100
+//         },
+//         {
+//             opacity: 1,
+//             y: 0,
+//             duration: 1.2,
+//             ease: "power4.out"
+//         }
+//     )
+
+//     .to({}, {
+//         duration: 1.2
+//     })
+
+//     .to(".loader-content", {
+//         opacity: 0,
+//         y: -30,
+//         duration: 0.8,
+//         ease: "power2.inOut"
+//     })
+
+//     .to(".page-loader", {
+//         yPercent: -100,
+//         duration: 1.2,
+//         ease: "power4.inOut"
+//     });
+
+// });
+
+// window.addEventListener("load", () => {
+
+//     document.body.classList.add("loading");
+
+//     const tl = gsap.timeline({
+//         onComplete: () => {
+//             document.querySelector(".page-loader").remove();
+//             document.body.classList.remove("loading");
+//         }
+//     });
+
+//     /* Text appears */
+//     tl.to(".loader-content", {
+//         opacity: 1,
+//         y: 0,
+//         duration: 0.8,
+//         ease: "power3.out"
+//     })
+
+//     /* Hold */
+//     .to({}, {
+//         duration: 1.2
+//     })
+
+//     /* Text disappears */
+//     .to(".loader-content", {
+//         opacity: 0,
+//         y: -30,
+//         duration: 0.6,
+//         ease: "power2.in"
+//     })
+
+//     /* Orange screen slides upward */
+//     .to(".page-loader", {
+//         yPercent: -100,
+//         duration: 1.2,
+//         ease: "power4.inOut"
+//     });
+
+// });
+
 window.addEventListener("load", () => {
 
-    document.body.classList.add("loading");
+    gsap.set(".loader-content h1", {
+        clipPath: "inset(0 100% 0 0)"
+    });
 
     const tl = gsap.timeline({
         onComplete: () => {
-            document.querySelector(".page-loader").remove();
-            document.body.classList.remove("loading");
+            document.querySelector(".page-loader")?.remove();
         }
     });
 
-    /* Orange grows bottom -> top */
-    tl.to(".loader-fill", {
-        height: "100%",
-        duration: 1.4,
-        ease: "power3.inOut"
+    /* Text reveal left -> right */
+    tl.to(".loader-content h1", {
+        clipPath: "inset(0 0% 0 0)",
+        duration: 2.5,
+        ease: "power2.out"
     })
-
-    /* Text comes from bottom */
-    .fromTo(".loader-content",
-        {
-            opacity: 0,
-            y: 100
-        },
-        {
-            opacity: 1,
-            y: 0,
-            duration: 1.2,
-            ease: "power4.out"
-        }
-    )
 
     /* Hold */
     .to({}, {
-        duration: 1.2
+        duration: 1
     })
 
-    /* Text fades away */
-    .to(".loader-content", {
-        opacity: 0,
-        y: -30,
+    /* Text hide left -> right */
+    .to(".loader-content h1", {
+        clipPath: "inset(0 0 0 100%)",
         duration: 0.8,
         ease: "power2.inOut"
     })
 
-    /* Orange screen slides upward */
+    /* Orange screen slides up */
     .to(".page-loader", {
         yPercent: -100,
         duration: 1.2,
