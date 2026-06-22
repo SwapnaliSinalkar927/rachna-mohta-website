@@ -4,6 +4,11 @@
 }
 
 @font-face {
+    font-family: 'bonaNovaScRegular';
+    src: url('../fonts/BonaNovaSC-Regular.ttf') format('truetype');
+}
+
+@font-face {
     font-family: 'bonaNovaBold';
     src: url('../fonts/BonaNova-Bold.ttf') format('truetype');
 }
